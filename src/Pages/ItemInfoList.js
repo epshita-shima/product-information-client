@@ -10,7 +10,24 @@ const ItemInfoList = () => {
             .then(data => setInfoList(data));
     }, [])
 
-
+    const handleDelete = (id) => {
+        const procced = window.confirm('are you sure want to delete?');
+        if (procced) {
+            console.log('delete item', id)
+            const url = `http://localhost:5000/info/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        console.log('delete successful');
+                        const remaining = infoList.filter(infoList => infoList._id != id);
+                        setInfoList(remaining);
+                    }
+                })
+        }
+    }
     return (
         <div className='container mx-auto'>
             <h3 className='text-4xl font-bold text-center mt-10 mb-10 text-stone-900 uppercase'>Total info length: {infoList.length}</h3>
@@ -38,7 +55,7 @@ const ItemInfoList = () => {
                                 <td className='bg-primary text-white'>{a.insertUnitName}</td>
                                 <td className='bg-accent text-white'>{a.insertStock}</td>
                                 <td className='bg-primary text-white'><button>Update</button></td>
-                                <td className='bg-red-800 text-white'><button className='ml-4'>X</button></td>
+                                <td className='bg-red-800 text-white'><button onClick={() => handleDelete(a._id)} className='ml-4'>X</button></td>
                             </tr>)
                         }
                     </tbody>
