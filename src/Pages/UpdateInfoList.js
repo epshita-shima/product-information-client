@@ -38,45 +38,49 @@ const UpdateInfoList = () => {
 
     }
     return (
-        <div className='container mx-auto'>
-            <h2 className='text-4xl font-bold text-center mt-10 mb-10 text-stone-900 '>Updating Item Name: {infoList.insertName}</h2>
+        <div className='container mx-auto h-screen w-9/12'>
+            <h2 className='text-3xl font-bold text-center mt-10 mb-10 text-stone-900 '>Updating Item Name: {infoList.insertName}</h2>
             <form className='grid  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-center' onSubmit={handleUpdateInfo}>
                 <div>
-                    <label htmlFor="" className='text-xl font-semibold'>Item type</label>
+                    <label htmlFor="" className='text-black font-semibold'>Item type</label>
                     <input type="text"
                         name='itemType'
                         placeholder="Type here"
-                        class="input input-bordered input-primary w-full max-w-xs" />
+                        required
+                        class="input border-1 border-[#4b5320] bg-white h-10 w-full max-w-xs" />
                 </div>
                 <div>
-                    <label htmlFor="" className='text-xl font-semibold'>Item name</label>
+                    <label htmlFor="" className='text-black font-semibold'>Item name</label>
                     <input type="text"
                         name='itemName'
                         placeholder="Type here"
-                        class="input input-bordered input-primary w-full max-w-xs" />
+                        required
+                        class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
                 </div>
 
                 <div>
-                    <label htmlFor="" className='text-xl font-semibold'>Sub category</label>
+                    <label htmlFor="" className='text-black font-semibold'>Sub category</label>
                     <input type="text"
                         name='categoryName'
                         placeholder="Type here"
-                        class="input input-bordered input-primary w-full max-w-xs" />
+                        required
+                        class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
                 </div>
                 <div>
-                    <label htmlFor="" className='text-xl font-semibold'>Unit name</label>
+                    <label htmlFor="" className='text-black font-semibold'>Unit name</label>
                     <input type="text"
                         name='unitName'
                         placeholder="Type here"
-                        class="input input-bordered input-primary w-full max-w-xs" />
+                        required
+                        class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
                 </div>
                 <div>
-                    <label htmlFor="" className='text-xl font-semibold'>Stock Limit</label>
-                    <input type="text" name='stockInfo' placeholder="Stock limit" class="input input-bordered input-primary w-full max-w-xs" />
+                    <label htmlFor="" className='text-black font-semibold'>Stock Limit</label>
+                    <input type="text" name='stockInfo' placeholder="Stock limit" required class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
                 </div>
                 <div className='mt-5'>
-                    <input type="submit" className='btn btn-primary text-white w-18 h-10' />
-                    <Link to='/itemlist'><button className='btn bg-red-800 hover:bg-red-700 text-white ml-4'>Cancle</button></Link>
+                    <input type="submit" value='Submit' className='btn-sm  bg-[#4b5320] text-white h-10 rounded' />
+                    <Link to='/itemlist'><button className='btn-sm border-none bg-red-800 hover:bg-red-700 text-white h-10 rounded ml-2'>Cancle</button></Link>
                 </div>
             </form>
         </div>

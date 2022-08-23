@@ -46,49 +46,53 @@ const ItemInfoCreate = () => {
     return (
         <div className='container mx-auto mt-10 w-fit h-screen'>
             <div>
-                <h2 className='text-4xl text-zinc-800 font-bold text-center mb-10'>Create Item Information</h2>
+                <h2 className='text-3xl text-zinc-800 font-bold text-center mb-4'>Create Item Information</h2>
             </div>
-            <div>
+            <div className='p-4'>
                 {
                     info.map((info, index) => (
-                        <div className='mb-8 sm:p-2'>
+                        <div className='mb-2'>
                             <form className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-center' key={index} onSubmit={handleSubmit}>
                                 <div>
-                                    <label htmlFor="" className='text-xl font-semibold'>Item type</label>
+                                    <label htmlFor="" className='text-black font-semibold'>Item type</label>
                                     <input type="text"
                                         name='itemType'
                                         placeholder="Type here"
-                                        class="input input-bordered input-primary w-full max-w-xs" />
+                                        required
+                                        class="input border-1 border-[#4b5320] bg-white h-10 w-full max-w-xs" />
                                 </div>
                                 <div>
-                                    <label htmlFor="" className='text-xl font-semibold'>Item name</label>
+                                    <label htmlFor="" className='text-black font-semibold'>Item name</label>
                                     <input type="text"
                                         name='itemName'
                                         placeholder="Type here"
-                                        class="input input-bordered input-primary w-full max-w-xs" />
+                                        required
+                                        class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="" className='text-xl font-semibold'>Sub category</label>
+                                    <label htmlFor="" className='text-black font-semibold'>Sub category</label>
                                     <input type="text"
                                         name='categoryName'
                                         placeholder="Type here"
-                                        class="input input-bordered input-primary w-full max-w-xs" />
+                                        required
+                                        class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
                                 </div>
                                 <div>
-                                    <label htmlFor="" className='text-xl font-semibold'>Unit name</label>
+                                    <label htmlFor="" className='text-black font-semibold'>Unit name</label>
                                     <input type="text"
                                         name='unitName'
                                         placeholder="Type here"
-                                        class="input input-bordered input-primary w-full max-w-xs" />
+                                        required
+                                        class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
                                 </div>
                                 <div>
-                                    <label htmlFor="" className='text-xl font-semibold'>Stock Limit</label>
-                                    <input type="text" name='stockInfo' placeholder="Stock limit" class="input input-bordered input-primary w-full max-w-xs" />
+                                    <label htmlFor="" className='text-black font-semibold'>Stock Limit</label>
+                                    <input type="text" name='stockInfo' placeholder="Stock limit" required class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
                                 </div>
                                 <div className='mt-5'>
-                                    <input type="submit" className='btn btn-primary text-white w-18 h-10' />
-                                    <Link to='/itemlist'><button className='btn bg-red-800 hover:bg-red-700 text-white ml-4'>Cancle</button></Link>
+                                    <input type="submit" value='Submit' className='btn-sm  bg-[#4b5320] text-white h-10 rounded' />
+                                    <Link to='/itemlist'><button className='btn-sm border-none bg-red-800 hover:bg-red-700 text-white h-10 rounded ml-2'>Cancle</button></Link>
                                 </div>
                             </form>
 
@@ -96,8 +100,8 @@ const ItemInfoCreate = () => {
                     ))
                 }
                 <div className='mt-4'>
-                    <button onClick={addList} className='btn btn-primary text-white'>Add more<FontAwesomeIcon className='text-xl text-white ml-2' icon={faPlus}></FontAwesomeIcon></button>
-                    <button onClick={removeList} className='btn bg-red-800 hover:bg-red-700 text-white ml-2'>Remove <FontAwesomeIcon className='text-white ml-2 text-xl' icon={faXmark}></FontAwesomeIcon></button>
+                    <button onClick={addList} className='btn-sm bg-[#4b5320] text-white h-10 rounded'>Add more<FontAwesomeIcon className='text-xl text-white ml-2' icon={faPlus}></FontAwesomeIcon></button>
+                    <button onClick={removeList} className='btn-sm bg-red-800 hover:bg-red-700 border-none text-white h-10 rounded ml-2 '>Remove <FontAwesomeIcon className='text-white ml-2 text-xl' icon={faXmark}></FontAwesomeIcon></button>
                 </div>
             </div>
         </div>

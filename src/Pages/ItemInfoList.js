@@ -29,8 +29,8 @@ const ItemInfoList = () => {
         }
     }
     return (
-        <div className='container mx-auto h-screen'>
-            <h2 className='text-4xl font-bold text-center mt-10 mb-10 text-stone-900 '>Products Information</h2>
+        <div className='container mx-auto w-11/12 h-screen'>
+            <h2 className='text-3xl font-bold text-center mt-10 mb-10 text-stone-900 '>Products Information</h2>
             <div class="overflow-x-auto">
                 <table class="table w-full text-center">
                     <thead className=''>
@@ -48,13 +48,13 @@ const ItemInfoList = () => {
                     <tbody>
                         {
                             infoList.map((a, index) => <tr>
-                                <th className='bg-primary text-white'>{index + 1}</th>
-                                <td className='bg-accent text-white'>{a.insertType}</td>
-                                <td className='bg-primary text-white'>{a.insertName}</td>
-                                <td className='bg-accent text-white'>{a.insertCategory}</td>
-                                <td className='bg-primary text-white'>{a.insertUnitName}</td>
-                                <td className='bg-accent text-white'>{a.insertStock}</td>
-                                <td className='bg-primary text-white'><Link to={`/update/${a._id}`}><button>Update</button></Link></td>
+                                <th className='bg-[#4b5320] text-white'>{index + 1}</th>
+                                <td className='bg-[#ffa6c8] text-white'>{a.insertType}</td>
+                                <td className='bg-[#4b5320] text-white'>{a.insertName}</td>
+                                <td className='bg-[#ffa6c8] text-white'>{a.insertCategory}</td>
+                                <td className='bg-[#4b5320] text-white'>{a.insertUnitName}</td>
+                                <td className='bg-[#ffa6c8] text-white'>{a.insertStock}</td>
+                                <td className='bg-[#4b5320] text-white'><Link to={`/update/${a._id}`}><button>Update</button></Link></td>
                                 <td className='bg-red-800 text-white'><button onClick={() => handleDelete(a._id)} className='ml-4'>X</button></td>
                             </tr>)
                         }
