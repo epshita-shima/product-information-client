@@ -19,9 +19,28 @@ const ItemInfoCreate = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const addName = e.target.itemName.value;
-        const addStock = e.target.stockInfo.value;
-        const categoryName = e.target.categoryName.value;
+        const insertType = e.target.itemType.value;
+        const insertName = e.target.itemName.value;
+        const insertCategory = e.target.categoryName.value;
+        const insertUnitName = e.target.unitName.value;
+        const insertStock = e.target.stockInfo.value;
+        console.log(insertType, insertName, insertCategory, insertUnitName, insertStock)
+
+        const productInfo = { insertType, insertName, insertCategory, insertUnitName, insertStock };
+
+        fetch(' http://localhost:5000/info', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(productInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data)
+                alert('category added successfully');
+            })
+        e.target.reset();
     }
     return (
         <div className='container mx-auto mt-10 w-fit h-screen'>
