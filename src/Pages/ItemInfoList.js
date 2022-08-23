@@ -52,7 +52,7 @@ const ItemInfoList = () => {
                                 <td className='bg-[#ffa6c8] text-white'>{a.insertType}</td>
                                 <td className='bg-[#4b5320] text-white'>{a.insertName}</td>
                                 <td className='bg-[#ffa6c8] text-white'>{a.insertCategory}</td>
-                                <td className='bg-[#4b5320] text-white'>{a.insertUnitName}</td>
+                                <td className='bg-[#4b5320] text-white'>{a.unitData}</td>
                                 <td className='bg-[#ffa6c8] text-white'>{a.insertStock}</td>
                                 <td className='bg-[#4b5320] text-white'><Link to={`/update/${a._id}`}><button>Update</button></Link></td>
                                 <td className='bg-red-800 text-white'><button onClick={() => handleDelete(a._id)} className='ml-4'>X</button></td>

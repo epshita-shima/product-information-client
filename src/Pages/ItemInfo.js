@@ -26,7 +26,7 @@ const ItemInfo = () => {
                     <label tabindex="0" class="btn-ghost bg-gray-200 m-1 p-3 text-black block text-center">Sub-Category name <FontAwesomeIcon className='text-black ml-2 text-xl text-center' icon={faSortDown}></FontAwesomeIcon></label>
                     <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-white text-black  rounded-box w-full">
                         {
-                            infoList.map(category => <li className='hover:bg-[#4b5320] hover:text-white mb-2 p-2 text-xl border'>{category.insertUnitName}</li>)
+                            infoList.map(category => <li className='hover:bg-[#4b5320] hover:text-white mb-2 p-2 text-xl border'>{category.unitData}</li>)
                         }
                     </ul>
                 </div>
