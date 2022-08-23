@@ -7,7 +7,7 @@ const UpdateInfoList = () => {
     const [infoList, setInfoList] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/update/${id}`)
+        fetch(`https://shrouded-peak-39009.herokuapp.com/update/${id}`)
             .then(res => res.json())
             .then(data => setInfoList(data));
     }, [])
@@ -22,7 +22,7 @@ const UpdateInfoList = () => {
         console.log(insertType, insertName, insertCategory, insertUnitName, insertStock)
 
         const productInfo = { insertType, insertName, insertCategory, insertUnitName, insertStock };
-        fetch(`http://localhost:5000/update/${id}`, {
+        fetch(`https://shrouded-peak-39009.herokuapp.com/update/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -38,9 +38,9 @@ const UpdateInfoList = () => {
 
     }
     return (
-        <div>
-            <h3>Updating Item Name:{infoList.insertName}</h3>
-            <form className='grid grid-cols-6 gap-4 items-center' onSubmit={handleUpdateInfo}>
+        <div className='container mx-auto'>
+            <h2 className='text-4xl font-bold text-center mt-10 mb-10 text-stone-900 '>Updating Item Name: {infoList.insertName}</h2>
+            <form className='grid  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-center' onSubmit={handleUpdateInfo}>
                 <div>
                     <label htmlFor="" className='text-xl font-semibold'>Item type</label>
                     <input type="text"
@@ -76,7 +76,7 @@ const UpdateInfoList = () => {
                 </div>
                 <div className='mt-5'>
                     <input type="submit" className='btn btn-primary text-white w-18 h-10' />
-                    <Link to='/itemlist'><button className='btn bg-red-800 text-white ml-4'>Cancle</button></Link>
+                    <Link to='/itemlist'><button className='btn bg-red-800 hover:bg-red-700 text-white ml-4'>Cancle</button></Link>
                 </div>
             </form>
         </div>

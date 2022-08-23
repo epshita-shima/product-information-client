@@ -5,7 +5,7 @@ const ItemInfoList = () => {
     const [infoList, setInfoList] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/info')
+        fetch('https://shrouded-peak-39009.herokuapp.com/info')
             .then(res => res.json())
             .then(data => setInfoList(data));
     }, [])
@@ -14,7 +14,7 @@ const ItemInfoList = () => {
         const procced = window.confirm('are you sure want to delete?');
         if (procced) {
             console.log('delete item', id)
-            const url = `http://localhost:5000/info/${id}`;
+            const url = `https://shrouded-peak-39009.herokuapp.com/info/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -29,8 +29,8 @@ const ItemInfoList = () => {
         }
     }
     return (
-        <div className='container mx-auto'>
-            <h3 className='text-4xl font-bold text-center mt-10 mb-10 text-stone-900 '>Products Information</h3>
+        <div className='container mx-auto h-screen'>
+            <h2 className='text-4xl font-bold text-center mt-10 mb-10 text-stone-900 '>Products Information</h2>
             <div class="overflow-x-auto">
                 <table class="table w-full text-center">
                     <thead className=''>

@@ -29,7 +29,7 @@ const ItemInfoCreate = () => {
 
         const productInfo = { insertType, insertName, insertCategory, insertUnitName, insertStock };
 
-        fetch(' http://localhost:5000/info', {
+        fetch(' https://shrouded-peak-39009.herokuapp.com/info', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -39,20 +39,20 @@ const ItemInfoCreate = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data)
-                alert('category added successfully');
+                alert('added successfully');
             })
         e.target.reset();
     }
     return (
         <div className='container mx-auto mt-10 w-fit h-screen'>
             <div>
-                <h2 className='text-4xl text-zinc-800 font-semibold text-center mb-10'>Create Item Information</h2>
+                <h2 className='text-4xl text-zinc-800 font-bold text-center mb-10'>Create Item Information</h2>
             </div>
             <div>
                 {
                     info.map((info, index) => (
-                        <div className='mb-8'>
-                            <form className='grid grid-cols-6 gap-4 items-center' key={index} onSubmit={handleSubmit}>
+                        <div className='mb-8 sm:p-2'>
+                            <form className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-center' key={index} onSubmit={handleSubmit}>
                                 <div>
                                     <label htmlFor="" className='text-xl font-semibold'>Item type</label>
                                     <input type="text"
@@ -88,7 +88,7 @@ const ItemInfoCreate = () => {
                                 </div>
                                 <div className='mt-5'>
                                     <input type="submit" className='btn btn-primary text-white w-18 h-10' />
-                                    <Link to='/itemlist'><button className='btn bg-red-800 text-white ml-4'>Cancle</button></Link>
+                                    <Link to='/itemlist'><button className='btn bg-red-800 hover:bg-red-700 text-white ml-4'>Cancle</button></Link>
                                 </div>
                             </form>
 
@@ -97,7 +97,7 @@ const ItemInfoCreate = () => {
                 }
                 <div className='mt-4'>
                     <button onClick={addList} className='btn btn-primary text-white'>Add more<FontAwesomeIcon className='text-xl text-white ml-2' icon={faPlus}></FontAwesomeIcon></button>
-                    <button onClick={removeList} className='btn bg-red-800 text-white ml-2'>Remove <FontAwesomeIcon className='text-white ml-2 text-xl' icon={faXmark}></FontAwesomeIcon></button>
+                    <button onClick={removeList} className='btn bg-red-800 hover:bg-red-700 text-white ml-2'>Remove <FontAwesomeIcon className='text-white ml-2 text-xl' icon={faXmark}></FontAwesomeIcon></button>
                 </div>
             </div>
         </div>

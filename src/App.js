@@ -10,8 +10,8 @@ function App() {
     <div className="bg-gray-100">
       <Header></Header>
       <Routes>
-        <Route path='' element={<ItemInfoCreate />} />
-        <Route path='/iteminfo' element={<ItemInfo />} />
+        <Route path='' element={<ItemInfo />} />
+        <Route path='/iteminfocreate' element={<ItemInfoCreate />} />
         <Route path='/itemlist' element={<ItemInfoList />} />
         <Route path='/update/:id' element={<UpdateInfoList />} />
       </Routes>
