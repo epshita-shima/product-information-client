@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
 const ItemInfoCreate = () => {
 
     const [info, setInfo] = useState([{ typeName: '', itemName: '', categoryName: '', unitName: '', stockinfo: '' }]);
@@ -87,7 +88,7 @@ const ItemInfoCreate = () => {
                                 </div>
                                 <div className='mt-5'>
                                     <input type="submit" className='btn btn-primary text-white w-18 h-10' />
-                                    <button className='btn bg-red-800 text-white ml-4'>Cancle</button>
+                                    <Link to='/itemlist'><button className='btn bg-red-800 text-white ml-4'>Cancle</button></Link>
                                 </div>
                             </form>
 

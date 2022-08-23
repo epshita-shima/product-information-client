@@ -30,7 +30,7 @@ const ItemInfoList = () => {
     }
     return (
         <div className='container mx-auto'>
-            <h3 className='text-4xl font-bold text-center mt-10 mb-10 text-stone-900 uppercase'>Total info length: {infoList.length}</h3>
+            <h3 className='text-4xl font-bold text-center mt-10 mb-10 text-stone-900 '>Products Information</h3>
             <div class="overflow-x-auto">
                 <table class="table w-full text-center">
                     <thead className=''>
@@ -54,7 +54,7 @@ const ItemInfoList = () => {
                                 <td className='bg-accent text-white'>{a.insertCategory}</td>
                                 <td className='bg-primary text-white'>{a.insertUnitName}</td>
                                 <td className='bg-accent text-white'>{a.insertStock}</td>
-                                <td className='bg-primary text-white'><button>Update</button></td>
+                                <td className='bg-primary text-white'><Link to={`/update/${a._id}`}><button>Update</button></Link></td>
                                 <td className='bg-red-800 text-white'><button onClick={() => handleDelete(a._id)} className='ml-4'>X</button></td>
                             </tr>)
                         }
