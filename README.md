@@ -1,7 +1,21 @@
-# Getting Started with Create React App
+# Product Information
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project link (https://musical-sunburst-e1d99c.netlify.app)
 
+## Description
+This products information is just a part of adding information.
+There has three pages that one is, iteminfo here, anyone can see the product sub-category and unit name in a dropdwoun list, its show database data.
+Item create info page, take some various data and store in on database, hare a cancel button, if click this button navigate the item list page, add addmore buton will add more row field, remove button remove the row.
+At last item list showing the all products information in a table. On here anyone can delete and update the information.
+
+##Used Technology
+* tailwind.css
+* daisyUI
+* react.js
+* react router
+* recat fontawesome
+* express.js
+* mongodb
 ## Available Scripts
 
 In the project directory, you can run:
