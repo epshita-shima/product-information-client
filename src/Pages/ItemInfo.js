@@ -17,7 +17,7 @@ const ItemInfo = () => {
                     <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-full">
 
                         {
-                            infoList.map(category => <li className='hover:bg-primary hover:text-white mb-3 p-4 text-xl'>{category.insertCategory}</li>)
+                            infoList.map(category => <li className='hover:bg-primary hover:text-white mb-3 p-3 text-xl border'>{category.insertCategory}</li>)
                         }
 
                     </ul>
@@ -26,7 +26,7 @@ const ItemInfo = () => {
                     <label tabindex="0" class="btn-ghost bg-gray-200 m-1 p-3 text-black block text-center">Sub-Category name <FontAwesomeIcon className='text-black ml-2 text-xl text-center' icon={faSortDown}></FontAwesomeIcon></label>
                     <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-full">
                         {
-                            infoList.map(category => <li className='hover:bg-primary hover:text-white mb-3 p-4 text-xl'>{category.insertUnitName}</li>)
+                            infoList.map(category => <li className='hover:bg-primary hover:text-white mb-3 p-3 text-xl border'>{category.insertUnitName}</li>)
                         }
                     </ul>
                 </div>
