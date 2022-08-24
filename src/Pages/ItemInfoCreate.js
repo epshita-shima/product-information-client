@@ -12,13 +12,15 @@ const ItemInfoCreate = () => {
         setInfo([...info, { typeName: '', itemName: '', categoryName: '', unitName: '', stockinfo: '' }])
     }
 
-    const [data, setData] = useState('');
+    const [data, setData] = useState([]);
     const [unitData, setUnitData] = useState('');
 
-    function getData(val) {
-        const listData = val.target.value
-        setData(listData)
-        console.log(listData)
+    const getData = (e) => {
+        e.preventDefault();
+        const listData = e.target.categoryname.value;
+        const allListData = [...listData, data];
+        setData(allListData);
+        console.log(allListData)
 
     }
 
@@ -91,10 +93,9 @@ const ItemInfoCreate = () => {
                                         <div class="dropdown">
                                             <label tabindex="0" class=" bg-gray-200 m-1 p-2 mt-6 text-black block text-center">Sub-Category <FontAwesomeIcon className='text-black ml-2 text-center' icon={faSortDown}></FontAwesomeIcon></label>
                                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-44">
-                                                <li><input type="text"
-                                                    name='categoryName'
-                                                    className='input border-1 border-[#4b5320] h-10 w-36'
-                                                    value={data} /></li>
+                                                {
+                                                    data.map(data => <li>{data}</li>)
+                                                }
                                             </ul>
                                         </div>
                                     </div>
@@ -109,12 +110,13 @@ const ItemInfoCreate = () => {
                                                 <div class="modal-box">
                                                     <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
-                                                    <input type="text"
-                                                        name='categoryname'
-                                                        onChange={getData}
-                                                        placeholder="add category"
-                                                        class="input input-bordered input-primary w-full" />
-
+                                                    <form onSubmit={getData}>
+                                                        <input type="text"
+                                                            name='categoryname'
+                                                            placeholder="add category"
+                                                            class="input input-bordered input-primary w-full" />
+                                                        <input type="submit" value="submit" />
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
