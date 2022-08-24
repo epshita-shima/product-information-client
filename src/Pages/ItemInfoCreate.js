@@ -12,15 +12,13 @@ const ItemInfoCreate = () => {
         setInfo([...info, { typeName: '', itemName: '', categoryName: '', unitName: '', stockinfo: '' }])
     }
 
-    const [data, setData] = useState([]);
+    const [categoryData, setCategoryData] = useState('');
     const [unitData, setUnitData] = useState('');
 
-    const getData = (e) => {
-        e.preventDefault();
-        const listData = e.target.categoryname.value;
-        const allListData = [...listData, data];
-        setData(allListData);
-        console.log(allListData)
+    const getcategoryData = (val) => {
+        const listData = val.target.value;
+        setCategoryData(listData);
+        console.log(listData)
 
     }
 
@@ -42,11 +40,10 @@ const ItemInfoCreate = () => {
         e.preventDefault();
         const insertType = e.target.itemType.value;
         const insertName = e.target.itemName.value;
-        const insertCategory = e.target.categoryName.value;
         const insertStock = e.target.stockInfo.value;
-        console.log(insertType, insertName, insertCategory, unitData, insertStock)
+        console.log(insertType, insertName, categoryData, unitData, insertStock)
 
-        const productInfo = { insertType, insertName, insertCategory, unitData, insertStock };
+        const productInfo = { insertType, insertName, categoryData, unitData, insertStock };
 
         fetch(' https://shrouded-peak-39009.herokuapp.com/info', {
             method: "POST",
@@ -93,9 +90,10 @@ const ItemInfoCreate = () => {
                                         <div class="dropdown">
                                             <label tabindex="0" class=" bg-gray-200 m-1 p-2 mt-6 text-black block text-center">Sub-Category <FontAwesomeIcon className='text-black ml-2 text-center' icon={faSortDown}></FontAwesomeIcon></label>
                                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-44">
-                                                {
-                                                    data.map(data => <li>{data}</li>)
-                                                }
+                                                <li><input type="text"
+                                                    name='unitName'
+                                                    className='input border-1 border-[#4b5320] h-10 w-36'
+                                                    value={categoryData} /></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -109,14 +107,12 @@ const ItemInfoCreate = () => {
                                             <div class="modal modal-bottom sm:modal-middle">
                                                 <div class="modal-box">
                                                     <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                    <input type="text"
+                                                        name='categoryname'
+                                                        onChange={getcategoryData}
+                                                        placeholder="add category"
+                                                        class="input input-bordered input-primary w-full" />
 
-                                                    <form onSubmit={getData}>
-                                                        <input type="text"
-                                                            name='categoryname'
-                                                            placeholder="add category"
-                                                            class="input input-bordered input-primary w-full" />
-                                                        <input type="submit" value="submit" />
-                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -144,7 +140,6 @@ const ItemInfoCreate = () => {
                                             <div class="modal modal-bottom sm:modal-middle">
                                                 <div class="modal-box">
                                                     <label for="my-modal-4" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-
                                                     <input type="text"
                                                         name='unitName'
                                                         onChange={getUnitData}

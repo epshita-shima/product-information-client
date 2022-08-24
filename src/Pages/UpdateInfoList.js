@@ -56,13 +56,13 @@ const UpdateInfoList = () => {
     }
     return (
         <div className='container mx-auto h-screen w-10/12'>
-            <h2 className='text-3xl font-bold text-center mt-10 mb-10 text-stone-900 '>Updating Item Name: {infoList.insertName}</h2>
-            <form className='grid  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-center' onSubmit={handleUpdateInfo}>
+            <h2 className='text-3xl font-bold text-center mt-10 mb-10 text-stone-900 '>Update a single product</h2>
+            <form className='grid  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-center' onSubmit={handleUpdateInfo}>
                 <div>
                     <label htmlFor="" className='text-black font-semibold'>Item type</label>
                     <input type="text"
                         name='itemType'
-                        placeholder="Type here"
+                        placeholder={infoList.insertType}
                         required
                         class="input border-1 border-[#4b5320] bg-white h-10 w-full max-w-xs" />
                 </div>
@@ -70,7 +70,7 @@ const UpdateInfoList = () => {
                     <label htmlFor="" className='text-black font-semibold'>Item name</label>
                     <input type="text"
                         name='itemName'
-                        placeholder="Type here"
+                        placeholder={infoList.insertName}
                         required
                         class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
                 </div>
@@ -82,11 +82,13 @@ const UpdateInfoList = () => {
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-44">
                                 <li><input type="text"
                                     name='categoryName'
+                                    placeholder={infoList.categoryData}
                                     className='input border-1 border-[#4b5320] h-10 w-36'
                                     value={data} /></li>
                             </ul>
                         </div>
                     </div>
+
                     <div className='mt-4'>
                         <label
                             for="my-modal-6" class="modal-button  w-6 h-6 rounded-full border-4 border-[#4b5320]">
@@ -101,7 +103,7 @@ const UpdateInfoList = () => {
                                     <input type="text"
                                         name='categoryname'
                                         onChange={getData}
-                                        placeholder="add category"
+                                        placeholder={infoList.categoryData}
                                         class="input input-bordered input-primary w-full" />
 
                                 </div>
@@ -117,6 +119,7 @@ const UpdateInfoList = () => {
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-44">
                                 <li><input type="text"
                                     name='unitName'
+                                    placeholder={infoList.unitData}
                                     className='input border-1 border-[#4b5320] h-10 w-36'
                                     value={unitData} /></li>
                             </ul>
@@ -136,7 +139,7 @@ const UpdateInfoList = () => {
                                     <input type="text"
                                         name='unitName'
                                         onChange={getUnitData}
-                                        placeholder="add unit name"
+                                        placeholder={infoList.unitData}
                                         class="input input-bordered input-primary w-full" />
                                 </div>
                             </div>
@@ -145,10 +148,13 @@ const UpdateInfoList = () => {
                 </div>
                 <div>
                     <label htmlFor="" className='text-black font-semibold'>Stock Limit</label>
-                    <input type="text" name='stockInfo' placeholder="Stock limit" required class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
+                    <input type="text"
+                        name='stockInfo'
+                        placeholder={infoList.insertStock}
+                        required class="input border-1 border-[#4b5320] bg-white  h-10 w-full max-w-xs" />
                 </div>
-                <div className='mt-5'>
-                    <input type="submit" value='Submit' className='btn-sm  bg-[#4b5320] text-white h-10 rounded' />
+                <div className='mt-4'>
+                    <input type="submit" value='Update' className='btn-sm  bg-[#4b5320] text-white h-10 rounded' />
                     <Link to='/itemlist'><button className='btn-sm border-none bg-red-800 hover:bg-red-700 text-white h-10 rounded ml-2'>Cancle</button></Link>
                 </div>
             </form>
