@@ -13,7 +13,7 @@ const UpdateInfoList = () => {
             .then(data => setInfoList(data));
     }, [])
 
-    const [data, setData] = useState('');
+    const [categoryData, setData] = useState('');
     const [unitData, setUnitData] = useState('');
 
     function getData(val) {
@@ -34,11 +34,10 @@ const UpdateInfoList = () => {
         e.preventDefault();
         const insertType = e.target.itemType.value;
         const insertName = e.target.itemName.value;
-        const insertCategory = e.target.categoryName.value;
         const insertStock = e.target.stockInfo.value;
-        console.log(insertType, insertName, insertCategory, unitData, insertStock)
+        console.log(insertType, insertName, categoryData, unitData, insertStock)
 
-        const productInfo = { insertType, insertName, insertCategory, unitData, insertStock };
+        const productInfo = { insertType, insertName, categoryData, unitData, insertStock };
         fetch(`https://shrouded-peak-39009.herokuapp.com/update/${id}`, {
             method: "PUT",
             headers: {
@@ -84,7 +83,7 @@ const UpdateInfoList = () => {
                                     name='categoryName'
                                     placeholder={infoList.categoryData}
                                     className='input border-1 border-[#4b5320] h-10 w-36'
-                                    value={data} /></li>
+                                    value={categoryData} /></li>
                             </ul>
                         </div>
                     </div>
